@@ -3,7 +3,6 @@ import csv
 
 score = 0
 line_count = 0
-applied_ques = 0
 
 options = {
     'A': 1,
@@ -20,11 +19,10 @@ def checkResponse(response, answer):
         score += 2
     else:
         print(f'Faux !, la réponse est: {answer}')
-    applied_ques += 1
 
 # Affichage du score
 def showScore():
-    print(f'Score total: {score}/{applied_ques}.')
+    print(f'Score total: {score}/20.')
 
 
 # Programme principale
@@ -45,17 +43,5 @@ with open('quiz.csv', 'r') as file:
                     correct_choice = True
                 
             line_count += 1
-
-            if applied_ques == 10:
-                showScore()
-                play_again = input('Voulez-vous rejouer ? (O/N): ')
-                if play_again in ['N', 'n']:
-                    break
-                else:
-                    line_count = 1
-                    applied_ques = 0
-                    score = 0
-    if applied_ques != 10:
-        showScore()
 
     print('Merci!')
