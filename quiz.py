@@ -2,7 +2,7 @@
 import csv
 
 score = 0
-line_count = 0
+count = 0
 
 options = {
     'A': 1,
@@ -30,8 +30,8 @@ with open('quiz.csv', 'r') as file:
     reader = csv.reader(file)
 
     for row in reader:
-        if line_count == 0:
-            line_count += 1
+        if count == 0:
+            count += 1
         else:
             print(f"\n{row[0]}\n A.{row[1]}\n B.{row[2]}\n C.{row[3]}\n D.{row[4]}\n")
             correct_choice = False
@@ -42,6 +42,6 @@ with open('quiz.csv', 'r') as file:
                     checkResponse(row[options[response.upper()]], row[5])
                     correct_choice = True
                 
-            line_count += 1
+            count += 1
 
     print('Merci!')
