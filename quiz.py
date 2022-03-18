@@ -48,7 +48,7 @@ for row in questions:
     correct_choice = False
     
     while not correct_choice:
-        response = input("Type A, B, C, or D\n")
+        response = input("Tapez A, B, C ou D\n")
         if response.upper() in ['A', 'B', 'C', 'D']:
             checkResponse(row[options[response.upper()]], row[5])
             correct_choice = True
