@@ -6,19 +6,6 @@ score = 0
 count = 0
 
 options = {'A': 1, 'B': 2, 'C': 3, 'D': 4}
-
-# Vérification des réponses
-def checkResponse(response, answer):
-    global score, applied_ques
-    if response == answer:
-        print('Bonne réponse!\n')
-        score += 2
-    else:
-        print(f'Faux !, la réponse est: {answer}\n')
-
-# Affichage du score
-def showScore():
-    print(f'Score total: {score}/20.')
     
 # Export des questions
 def exportCSV(file):
@@ -37,6 +24,19 @@ def randomQuestion(questions):
         quiz.remove(item)
         data.append(item)
     return data
+
+# Vérification des réponses
+def checkResponse(response, answer):
+    global score, applied_ques
+    if response == answer:
+        print('Bonne réponse!\n')
+        score += 2
+    else:
+        print(f'Faux !, la réponse est: {answer}\n')
+
+# Affichage du score
+def showScore():
+    print(f'Score total: {score}/20.')
 
 # Main     
 allQuestions = exportCSV('quiz.csv')   
