@@ -27,7 +27,7 @@ def randomQuestion(questions):
 
 # Vérification des réponses
 def checkResponse(response, answer):
-    global score, applied_ques
+    global score
     if response == answer:
         print('Bonne réponse!\n')
         score += 2
