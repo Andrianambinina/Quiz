@@ -39,21 +39,22 @@ def showScore():
     print(f'Score total: {score}/20.')
 
 # Main     
+def main(questions):  
+    global count  
+    for row in questions:
+        print(f"\n{row[0]}\n A.{row[1]}\n B.{row[2]}\n C.{row[3]}\n D.{row[4]}\n")
+        
+        correct_choice = False
+        
+        while not correct_choice:
+            response = input("Tapez A, B, C ou D\n")
+            if response.upper() in ['A', 'B', 'C', 'D']:
+                checkResponse(row[options[response.upper()]], row[5])
+                correct_choice = True
+            
+        count += 1
+    showScore()
+
 allQuestions = exportCSV('quiz.csv')   
 questions = randomQuestion(allQuestions)
-        
-for row in questions:
-    print(f"\n{row[0]}\n A.{row[1]}\n B.{row[2]}\n C.{row[3]}\n D.{row[4]}\n")
-    
-    correct_choice = False
-    
-    while not correct_choice:
-        response = input("Tapez A, B, C ou D\n")
-        if response.upper() in ['A', 'B', 'C', 'D']:
-            checkResponse(row[options[response.upper()]], row[5])
-            correct_choice = True
-        
-    count += 1
-
-showScore()
-print('Merci!')
+main(questions)
